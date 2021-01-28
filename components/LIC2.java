@@ -7,15 +7,13 @@ import java.lang.Math;
 public class LIC2 {
     public static void main(String[] args) {
         LIC2 l = new LIC2();
-        double[] xCordinates = {0,0,-1,3,6,3,6,8,6,53,1};
-        double[] yCordinates = {1,0,0,6,8,0,23,6,3,1,2};
+        double[] xCordinates = {4,1,1};
+        double[] yCordinates = {2,1,3};
         l.getLic2(xCordinates,yCordinates,xCordinates.length, 3.1415926535, 2);
     }
 
+    
     public boolean getLic2(double [] xPos, double[] yPos, int numPoints,  double PI, double EPSILON){
-
-         
-
         double x1,x2,y1,y2;
         double angle=-1;
         double lenX;
@@ -42,14 +40,13 @@ public class LIC2 {
             angle = Math.acos((x1*y1+x2*y2)/(lenX*leny));
 
             if(angle < PI - EPSILON){
-                System.out.println("SIG ");
+                System.out.println("SIG angle: " + angle*180/Math.PI);
                 return true;
             }
             
             System.out.println("angle: " + angle);
 
         }
-
         return false;
     }
 
