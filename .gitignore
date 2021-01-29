@@ -82,3 +82,11 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+decide/
+.project
