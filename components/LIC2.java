@@ -30,21 +30,21 @@ public class LIC2 {
             // vector BC
             y1 = xPos[i+2] - xPos[i+1];
             y2 = yPos[i+2] - yPos[i+1];
-            System.out.println("A(" + xPos[i] + "," + yPos[i] + ")");
-            System.out.println("B(" + xPos[i+1] + "," + yPos[i+1] + ")");
-            System.out.println("C(" + xPos[i+2] + "," + yPos[i+2] + ")");
-            System.out.println("x1: " + x1 + " x2: " + x2 +"y1: " + y1 + " y2: " + y2);
+            // System.out.println("A(" + xPos[i] + "," + yPos[i] + ")");
+            // System.out.println("B(" + xPos[i+1] + "," + yPos[i+1] + ")");
+            // System.out.println("C(" + xPos[i+2] + "," + yPos[i+2] + ")");
+            // System.out.println("x1: " + x1 + " x2: " + x2 +"y1: " + y1 + " y2: " + y2);
             lenX = Math.sqrt(Math.pow(x1, 2) + Math.pow(x2, 2));
             leny = Math.sqrt(Math.pow(y1, 2) + Math.pow(y2, 2)); 
 
             angle = Math.acos((x1*y1+x2*y2)/(lenX*leny));
 
             if(angle < PI - EPSILON){
-                System.out.println("SIG angle: " + angle*180/Math.PI);
+                // System.out.println("SIG angle: " + angle*180/Math.PI);
                 return true;
             }
             
-            System.out.println("angle: " + angle);
+            // System.out.println("angle: " + angle);
 
         }
         return false;
