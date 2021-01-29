@@ -24,7 +24,7 @@ public class LIC9Test {
     void trueTest() {
         double[] xs = {2,0,0,1,0,1};
         double[] ys = {2,0,0,1,0,3};
-        LIC0 lic9 = new LIC9();
+        LIC9 lic9 = new LIC9();
         assertTrue(lic9.getLic9(xs,ys,xs.length,2,1,3.1415926535, 2));
     }
 }
