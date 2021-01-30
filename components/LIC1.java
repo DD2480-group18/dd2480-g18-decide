@@ -1,4 +1,5 @@
-public class LIC1 {
+class LIC1 {
+
     private double[] xList;
     private double[] yList;
     private int listLength;
@@ -21,97 +22,142 @@ public class LIC1 {
         boolean isOutsideTheCircle = false;
 
         for (int i = 0; i < listLength - 2; i++) {
-            Point p1 = new Point(xList[i], yList[i]);
-            Point p2 = new Point(xList[i + 1], yList[i + 1]);
-            Point p3 = new Point(xList[i + 2], yList[i + 2]);
 
-            double distanceBetweenP1P2 = computeDistance(p1, p2); // 1 - 2
-            double distanceBetweenP2P3 = computeDistance(p2, p3); // 2 - 3
-            double distanceBetweenP1P3 = computeDistance(p1, p3); // 1 - 3
+            double x1 = xList[i], y1 = yList[i];
+            double x2 = xList[i + 1], y2 = yList[i + 1];
+            double x3 = xList[i + 2], y3 = yList[i + 2];
 
-            Point center;
+            double distanceBetweenP1P2 = computeDistance(x1, y1, x2, y2); // 1 - 2
+            double distanceBetweenP2P3 = computeDistance(x2, y2, x3, y3); // 1 - 2
+            double distanceBetweenP1P3 = computeDistance(x1, y1, x3, y3); // 1 - 2
+
+            double centerX;
+            double centerY;
             double angleCircumference;
             double angleCompare;
 
             if (distanceBetweenP1P2 > distanceBetweenP2P3 && distanceBetweenP1P2 > distanceBetweenP1P3) {
                 // find center using point 1 and point 2
-                center = findCircleCenter(p1, p2, radius1);
-                // Compute angle at circumference
-                angleCircumference = angleOnCircumference(p1, p2, center, radius1);
+                centerX = computeCenterXorY(x1, y1, x2, y2, radius1, 'X');
+                centerY = computeCenterXorY(x1, y1, x2, y2, radius1, 'Y');
             } else if(distanceBetweenP2P3 > distanceBetweenP1P2 && distanceBetweenP2P3 > distanceBetweenP1P3) {
                 // find center using point 2 and point 3
-                center = findCircleCenter(p2, p3, radius1);
-                // Compute angle at circumference
-                angleCircumference = angleOnCircumference(p1, p2, center, radius1);
+                centerX = computeCenterXorY(x2, y2, x3, y3, radius1, 'X');
+                centerY = computeCenterXorY(x2, y2, x3, y3, radius1, 'Y');
             } else {
                 // find center using point 1 and point 3
-                center = findCircleCenter(p1, p3, radius1);
-                // Compute angle at circumference
-                angleCircumference = angleOnCircumference(p1, p2, center, radius1);
+                centerX = computeCenterXorY(x1, y1, x3, y3, radius1, 'X');
+                centerY = computeCenterXorY(x1, y1, x3, y3, radius1, 'Y');
             }
+            // Compute angle at circumference
+            angleCircumference = angleOnCircumference(x1, y1, x2, y2, centerX, centerY, radius1);
+
             // Compute angle at third point
-            angleCompare = getAngleOn(p1, p2, p3);
+            angleCompare = getAngleOn(x1, y1, x2, y2, x3, y3);
 
             int comparator = angleComparator(angleCircumference, angleCompare);
             if (comparator == 1) {
                 isOutsideTheCircle = true;
                 break;
             }
-//            isOutsideTheCircle = isOutsideTheCircle || comparator == 1 ? true : false;
         }
 
         return isOutsideTheCircle;
     }
 
-    private double computeDistance(Point p1, Point p2) {
-        double x1 = p1.x, y1 = p1.y;
-        double x2 = p2.x, y2 = p2.y;
-
+    private double computeDistance(double x1, double y1, double x2, double y2) {
         return Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1), 2));
     }
 
-    private Point findCircleCenter(Point p1, Point p2, double radius1) {
-        Point center = new Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
-        double distanceBetweenPoints = computeDistance(p1, p2);
+    private double computeCenterXorY(double x1, double y1, double x2, double y2, double radius1, char coordinate) {
+        double centerX = (x1 + x2) / 2;
+        double centerY = (y1 + y2) / 2;
+        double distanceBetweenPoints = computeDistance(x1, y1, x2, y2);
         if ( distanceBetweenPoints == radius1) {
             // The diameter is the distance between the two points
-            return center;
+            if (coordinate == 'X') {
+                return centerX;
+            } else if (coordinate == 'Y') {
+                return centerY;
+            } else {
+                throw new Error("X or Y coordinate was not given");
+            }
         }
 
         double mirrorDistance = Math.sqrt(radius1 * radius1 - distanceBetweenPoints * distanceBetweenPoints / 4);
-        double dx = (p2.x - p1.x) * mirrorDistance / distanceBetweenPoints;
-        double dy = (p2.y - p1.y) * mirrorDistance / distanceBetweenPoints;
+        double dx = (x2 - x1) * mirrorDistance / distanceBetweenPoints;
+        double dy = (y2 - y1) * mirrorDistance / distanceBetweenPoints;
 
         // modify the center
-        center.x = center.x - dy;
-        center.y = center.y + dx;
+        centerX = centerX - dy;
+        centerY = centerY + dx;
 
-        return center;
+        if (coordinate == 'X') {
+            return centerX;
+        } else if (coordinate == 'Y') {
+            return centerY;
+        } else {
+            throw new Error("X or Y coordinate was not given");
+        }
     }
 
-    private double angleOnCircumference(Point p1, Point p2, Point center, double radius1) {
+    public double computeCenterX(double x1, double y1, double x2, double y2, double radius1) {
+        return computeCenterXorY(x1, y1, x2, y2, radius1, 'X');
+    }
+    public double computeCenterY(double x1, double y1, double x2, double y2, double radius1) {
+        return computeCenterXorY(x1, y1, x2, y2, radius1, 'Y');
+    }
+
+    private double getAngleOn(double x1, double y1, double x2, double y2, double px, double py) {
+        double angleP1 = computeAngleAt(x1, y1, x2, y2, px, py);
+        double angleP2 = computeAngleAt(x2, y2, x1, y1, px, py);
+        // Sum of angles in triangle = 180
+        double angleOutside = 180 - (angleP1 + angleP2);
+
+        return angleOutside;
+    }
+
+    private double angleOnCircumference(double x1, double y1, double x2, double y2, double centerX, double centerY, double radius1) {
         // Calculate x and y coordinate for the new point
-        Point pointAcross = getPointOnCircumference(p1, center);
+        double pointX = computePointOnCircumference(x1, y1, centerX, centerY, 'X');
+        double pointY = computePointOnCircumference(x1, y1, centerX, centerY, 'Y');
 
         // Compute angles
-        double angleP1 = computeAngleAt(p1, p2, pointAcross);
-        double angleP2 = computeAngleAt(p2, p1, pointAcross);
+        double angleP1 = computeAngleAt(x1, y1, x2, y2, pointX, pointY);
+        double angleP2 = computeAngleAt(x2, y2, x1, y1, pointX, pointY);
         // Angle sum of triangle = 180
         double anglePointAcross = 180 - (angleP1 + angleP2);
 
         return anglePointAcross;
     }
 
-    private Point getPointOnCircumference(Point p, Point center) {
-        double x = center.x - (p.x - center.x);
-        double y = center.y - (p.y - center.y);
-        return new Point(x, y);
+    private double computePointOnCircumference(double x, double y, double centerX, double centerY, char coordinate) {
+        double pointX = centerX - (x - centerX);
+        double pointY = centerY - (y - centerY);
+        if (coordinate == 'X') {
+            return pointX;
+        } else if(coordinate == 'Y') {
+            return pointY;
+        } else {
+            throw new IllegalArgumentException("Coordinate was wrongfully given.");
+        }
     }
 
-    private double computeAngleAt(Point A, Point B, Point C) {
-        double a = computeDistance(A, B);
-        double b = computeDistance(A, C);
-        double c = computeDistance(B, C);
+    public double computePointOnCircumferenceX(double x, double y, double centerX, double centerY) {
+        return computePointOnCircumference(x, y, centerX, centerY, 'X');
+    }
+    public double computePointOnCircumferenceY(double x, double y, double centerX, double centerY) {
+        return computePointOnCircumference(x, y, centerX, centerY, 'Y');
+    }
+    /**
+     * Angle/Point A has sides a and b.
+     * Angle/Point B has sides a and c.
+     * Angle/Point C has sides b and c.
+     */
+    private double computeAngleAt(double ax, double ay, double bx, double by, double cx, double cy) {
+        double a = computeDistance(ax, ay, bx, by);
+        double b = computeDistance(ax, ay, cx, cy);
+        double c = computeDistance(bx, by, cx, cy);
 
         // Cosine rule: cos(A) = (b^2 + c^2 - a^2) / (2 * b * c)
         double bSquare = Math.pow(b, 2);
@@ -124,13 +170,8 @@ public class LIC1 {
         return Math.acos(quotient);
     }
 
-    private double getAngleOn(Point p1, Point p2, Point pointOutside) {
-        double angleP1 = computeAngleAt(p1, p2, pointOutside);
-        double angleP2 = computeAngleAt(p2, p1, pointOutside);
-        // Sum of angles in triangle = 180
-        double angleOutside = 180 - (angleP1 + angleP2);
-
-        return angleOutside;
+    public double computeAngleWithCosineRule(double ax, double ay, double bx, double by, double cx, double cy) {
+        return computeAngleAt(ax, ay, bx, by, cx, cy);
     }
 
     private int angleComparator(double angle1, double angle2) {
@@ -143,11 +184,11 @@ public class LIC1 {
         }
     }
 
-    public double cosineRule(Point A, Point B, Point C) {
-        return computeAngleAt(A, B, C);
+    private double computeDistance(Point p1, Point p2) {
+        double x1 = p1.x, y1 = p1.y;
+        double x2 = p2.x, y2 = p2.y;
+
+        return Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1), 2));
     }
 
-    public Point publicFindCenter(Point p1, Point p2, double radius1) {
-        return findCircleCenter(p1, p2, radius1);
-    }
 }
