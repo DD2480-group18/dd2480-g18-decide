@@ -1,8 +1,4 @@
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
-
-import java.awt.event.ActionListener;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class LIC8Test {
@@ -10,6 +6,7 @@ class LIC8Test {
     double radie;
     int A_PTS;
     int B_PTS;
+    int NUMPOINTS;
 
     double[] xFalse;
     double[] yFalse;
@@ -22,11 +19,6 @@ class LIC8Test {
 
     LIC8 lic8;
 
-    @Before
-    void setup() {
-        lic8 = new LIC8();
-    }
-
     /**
      * This test contains datapoints that lies on the x-axis.
      * The distance between the points is 1. This means that if
@@ -37,19 +29,21 @@ class LIC8Test {
      */
     @Test
     void testTrueInstance() {
-        xTrue = new double[10];
-        yTrue = new double[10];
-        for (int i = 0; i < xTrue.length ; i++) {
-            xTrue[i] = i;
-        }
         // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         // 0 3 6
         A_PTS = 2;
         B_PTS = 3;
         radie = 1;
-        lic8 = new LIC8(xTrue, yTrue, radie, A_PTS, B_PTS);
+        NUMPOINTS = 10;
+        xTrue = new double[NUMPOINTS];
+        yTrue = new double[NUMPOINTS];
+        for (int i = 0; i < NUMPOINTS ; i++) {
+            xTrue[i] = i;
+        }
 
-        assertTrue(lic8.compute());
+        boolean result = LIC8.compute(xTrue, yTrue, radie, A_PTS, B_PTS, NUMPOINTS);
+
+        assertTrue(result);
     }
 
     /**
@@ -62,15 +56,16 @@ class LIC8Test {
     @Test
     void testOrigo() {
 
-        xOrigo = new double[10];
-        yOrigo = new double[10];
-
+        NUMPOINTS = 10;
         A_PTS = 2;
         B_PTS = 2;
         radie = 1;
-        lic8 = new LIC8(xOrigo, yOrigo, radie, A_PTS, B_PTS);
+        xOrigo = new double[NUMPOINTS];
+        yOrigo = new double[NUMPOINTS];
+        
+        boolean result = LIC8.compute(xOrigo, yOrigo, radie, A_PTS, B_PTS, NUMPOINTS);
 
-        assertFalse(lic8.compute());
+        assertFalse(result);
     }
 
     /**
@@ -81,17 +76,20 @@ class LIC8Test {
      */
     @Test
     void testFalseInstance() {
-        xFalse = new double[10];
-        yFalse = new double[10];
+        NUMPOINTS = 10;
+        A_PTS = 2;
+        B_PTS = 2;
+        radie = 3;
+
+        xFalse = new double[NUMPOINTS];
+        yFalse = new double[NUMPOINTS];
         for (int i = 0; i < xFalse.length ; i++) {
             xFalse[i] = i;
         }
 
-        A_PTS = 2;
-        B_PTS = 2;
-        radie = 3;
-        lic8 = new LIC8(xFalse, yFalse, radie, A_PTS, B_PTS);
 
-        assertFalse(lic8.compute());
+        boolean result = LIC8.compute(xFalse, yFalse, radie, A_PTS, B_PTS, NUMPOINTS);
+
+        assertFalse(result);
     }
 }
