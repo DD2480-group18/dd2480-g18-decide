@@ -1,6 +1,9 @@
+package group18;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import group18.*;
 
 public class ExampleTest {
 	@Test
