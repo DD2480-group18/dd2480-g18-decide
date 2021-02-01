@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LaunchTest {
@@ -7,9 +9,7 @@ class LaunchTest {
     @Test
     void testLaunch1() {
         boolean[] FUV = new boolean[10];
-        for (int i = 0; i < FUV.length; i++) {
-            FUV[i] = true;
-        }
+        Arrays.fill(FUV, true);
 
         assertTrue(Launch.launch(FUV));
     }
