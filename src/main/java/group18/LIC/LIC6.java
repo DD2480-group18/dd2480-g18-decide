@@ -14,9 +14,11 @@ public class LIC6 {
 
     public static boolean getLic6(double [] xPos, double[] yPos, int NUMPOINTS, int N_PTS, double DIST){
         double x1,x2,y1,y2;     // the two points forming a line, first and last of N_PTS
+        double dx, dy;          // used to calculate the slope, k
         double k, m, a, b, c;   // variables to describe the line
         double x0, y0;          // the intermediate point whose distance is being examined
         double distToLine;
+        boolean dxZero = false; // used to prevent division by zero when handling vertical lines
 
         // condition is only met when NUMPOINTS is at least 3
         if(NUMPOINTS < 3){
@@ -28,15 +30,30 @@ public class LIC6 {
             x2 = xPos[i+offset];
             y1 = yPos[i];
             y2 = yPos[i+offset];
-            k = (y2 - y1)/(x2 - x1);
-            m = y1 - k*x1;
+            dx = x2 - x1;
+            dy = y2 - y1;
+            dxZero = (Math.abs(dx) < Math.pow(10, -6));
+
             // y = kx + m
-            // -kx + 1*y - m = 0
-            // ax + by + c = 0
-            // a = -k, b = 1, c = -m
-            a = -k;
-            b = 1;
-            c = -m;
+            // -kx +    1*y     - m = 0
+            // ax   +   by      + c = 0
+            // regular case:
+            // a = -k,  b = 1,  c = -m
+            if(dxZero){
+                // a vertical line, its normal will
+                // be zero in y-direction and has no y-intercept (m=0=c)
+                // its x-component only needs to be non-zero so that it's
+                // possible to project on it and since the distance formula normalizes
+                a = 1;
+                b = 0;
+                c = 0;
+            }else { // regular case
+                k = dy / dx;
+                m = y1 - k * x1;
+                a = -k;
+                b = 1;
+                c = -m;
+            }
 
             for (int j = i + 1; j < i + offset; j++) {
                 x0 = xPos[j];

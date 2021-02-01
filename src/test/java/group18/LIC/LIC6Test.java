@@ -56,4 +56,36 @@ public class LIC6Test {
         assertFalse(LIC6.getLic6(X, Y, NUMPOINTS, N_PTS, DIST));
     }
 
+    /**
+     * Testing with correct input, examining the case where x1=x0,
+     * normally risking division by zero. The first intermediate
+     * point lies at (1,2) where the closest point on the line is
+     * (0,2), at a distance of 1. Thus it is farther away than 0.1.
+     */
+    @Test
+    void verticalLineTrueTest() {
+        double[] X = {0,1,0,0};
+        double[] Y = {-3,2,0,3};
+        int NUMPOINTS = 4;
+        int N_PTS = 4;
+        double DIST = 0.1;
+        assertTrue(LIC6.getLic6(X, Y, NUMPOINTS, N_PTS, DIST));
+    }
+
+    /**
+     * Testing with correct input, examining the case where x1=x0,
+     * normally risking division by zero. Both of the intermediate
+     * points are on the line and should thus not be farther away
+     * than DIST.
+     */
+    @Test
+    void verticalLineFalseTest() {
+        double[] X = {0,0,0,0};
+        double[] Y = {-3,2,-1,3};
+        int NUMPOINTS = 4;
+        int N_PTS = 4;
+        double DIST = 0.00001;
+        assertFalse(LIC6.getLic6(X, Y, NUMPOINTS, N_PTS, DIST));
+    }
+
 }
