@@ -1,6 +1,6 @@
 package group18.LIC;
 
-import group18.CMV.LIC.LIC9;
+import group18.LIC.LIC9;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

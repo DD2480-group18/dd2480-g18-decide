@@ -1,4 +1,4 @@
-package group18.CMV.LIC;
+package group18.LIC;
 
 public class LIC0 {
     // The value to be returned to the CMV

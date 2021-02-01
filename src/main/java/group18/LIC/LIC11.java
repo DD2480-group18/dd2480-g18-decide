@@ -1,4 +1,4 @@
-package group18.CMV.LIC;
+package group18.LIC;
 
 public class LIC11 {
     public static void main(String[] args) {
