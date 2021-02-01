@@ -1,9 +1,10 @@
 
 public class FUV {
     public static void main(String[] args) {
-        boolean[] puv = {false,true,false,true};
-        boolean[][] pum = {{false,false,false,false},{true,true,true,true},{false,false,false,false},{false,true,false,true}};
-
+        // boolean[] puv = {false,true,false,true};
+        // boolean[][] pum = {{false,false,false,false},{true,true,true,true},{false,false,false,false},{false,true,false,true}};
+        boolean[] puv = {true,true,true,true};
+        boolean[][] pum = {{false,false,false,false},{true,true,true,true},{true,true,true,true},{true,false,true,false}};
         boolean[] t = FUV.getFUV(puv, pum);
     }   
     
@@ -11,15 +12,12 @@ public class FUV {
         boolean[] FUV = new boolean[PUV.length];
 
         for (int i = 0; i < FUV.length; i++) {
-            System.out.println("i: " + i);
             if(PUV[i] == false){
-                System.out.println("PUV[i] == false: " + FUV[i]);
                 FUV[i] = true;
                 continue;
             } else {
                 for (int j = 0; j < PUM[i].length; j++) {
                     if(PUM[i][j] == false) {
-
                         FUV[i] = false;
                         break;
                     }
@@ -30,9 +28,6 @@ public class FUV {
             }
             
         }
-        for (int i = 0; i < FUV.length; i++) {
-            System.out.println(FUV[i]);
-        }
-        return null;
+        return FUV;
     }
 }
