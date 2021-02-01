@@ -2,6 +2,22 @@ public class LIC12 {
     private static boolean condition1;
     private static boolean condition2;
 
+    public static void setCondition1(boolean b) {
+        condition1 = b;
+    }
+
+    public static void setCondition2(boolean b) {
+        condition2 = b;
+    }
+
+    /**
+     * Help function to calculate distance between two points
+     *
+     * @param pt1: a 2-D point consisting of two doubles
+     * @param pt2: a 2-D point consisting of two doubles
+     * @return the distance (as a double) between the two points
+     */
+
     private static double getDist(double[] pt1, double[] pt2) {
         return Math.sqrt(Math.pow(pt1[0] - pt2[0], 2) + Math.pow(pt1[1] - pt2[1], 2));
     }
@@ -24,12 +40,14 @@ public class LIC12 {
         double dist;
         for (int i = 0; i < NUM_POINTS - K_PTS; i++) {
             pt_1 = new double[] {xs[i], ys[i]};
-            pt_2 = new double[] {xs[i+K_PTS], ys[i]};
+            pt_2 = new double[] {xs[i+K_PTS], ys[i+K_PTS]};
             dist = getDist(pt_1, pt_2);
             if (dist > LENGTH1 && dist < LENGTH2) return true;
             else if (dist > LENGTH1) condition1 = true;
             else if (dist < LENGTH2) condition2 = true;
+            System.out.println("condition1: " + condition1 + "\ncondition2: " + condition2 + "\n");
         }
+        System.out.println("\n");
         return condition1 && condition2;
     }
 }
