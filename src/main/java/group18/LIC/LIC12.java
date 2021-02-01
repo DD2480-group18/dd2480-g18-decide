@@ -25,7 +25,10 @@ public class LIC12 {
     }
 
     /**
-     *
+     * This function implements the functionality of launch initiation condition 6.
+     * It returns true if there is one set of two points, separated by K_PTS consecutive intervening points, farther
+     * apart than LENGTH1 as well as at least one set of two points, separated by K_PTS consecutive intervening points,
+     * closer to each other than LENGTH2. If only one condition is fulfilled, the function returns false.
      *
      * @param xs: double array holding the x-coordinates
      * @param ys: double array holding the y-coordinates
