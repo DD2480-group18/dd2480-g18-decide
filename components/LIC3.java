@@ -28,6 +28,7 @@ public class LIC3 {
             v2 = new double[] {p1[0] - p3[0], p1[1] - p3[1]};
             v1Len = vecLen(v1);
             v2Len = vecLen(v2);
+            if (v1Len == 0 || v2Len == 0) continue;
             angle = Math.acos(dotProduct(v1, v2)/(v1Len*v2Len));
             height = Math.sin(angle)*v2Len;
             area = v1Len*height/2;
