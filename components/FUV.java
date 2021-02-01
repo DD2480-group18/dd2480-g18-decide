@@ -9,8 +9,10 @@ public class FUV {
     }   
     
     public static boolean[] getFUV(boolean[] PUV, boolean[][] PUM){
+        if (PUV == null || PUV.length != PUM[0].length) {
+            throw new IllegalArgumentException("Dimensions of PUV needs to be correct");
+        }
         boolean[] FUV = new boolean[PUV.length];
-
         for (int i = 0; i < FUV.length; i++) {
             if(PUV[i] == false){
                 FUV[i] = true;

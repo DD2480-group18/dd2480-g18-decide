@@ -49,5 +49,19 @@ public class FUVTest {
         boolean[] calcFUV = a.getFUV(puv,pum);
         asserTrue(Arrays.equals(correctFUV, calcFUV ));
     }
+
+    /**
+     * Test checks whether an error is thrown when dimensions of PUVi is incorrect 
+     */
+    @Test
+    void invalidInput() {
+        boolean[] puv = {false,true,false};
+        boolean[][] pum = {{false,false,false,false},{true,true,true,true},{true,true,true,true},{true,false,true,false}};
+        FUV a = new FUV();
+        boolean[] correctFUV = {true,true,true,false};
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> a.getFUV(puv,pum));
+        assertEquals("Dimensions of PUV needs to be correct", exception.getMessage());
+}
+    }
 }
 
