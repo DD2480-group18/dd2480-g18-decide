@@ -1,75 +1,78 @@
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class LIC1Test {
-
-    LIC1 lic1 = null;
-    LIC1 lic2 = null;
-    LIC1 lic10 = null;
-    LIC1 licTester = null;
 
     double radius1;
     double radius2;
     double radius10;
 
-    public double[] generateLinearValues(int numberOfPoints) {
-        double[] datapoints = new double[numberOfPoints];
-        for (int i = 0; i < numberOfPoints; i++) {
+    int NUMPOINTS;
+
+    // Linear
+    double[] xLinear;
+    double[] yLinear;
+
+    // Three points at origo
+    double[] xOrigo;
+    double[] yOrigo;
+
+    // Three points on unit circle
+    double[] xUnitCircle;
+    double[] yUnitCircle;
+
+    public double[] generateLinearValues(int NUMPOINTS) {
+        double[] datapoints = new double[NUMPOINTS];
+        for (int i = 0; i < NUMPOINTS; i++) {
             datapoints[i] = i;
         }
         return datapoints;
     }
 
     // All three points are at the origo
-    public double[] generateThreePointsOrigo() {
-        double[] datapoints = new double[3];
+    public double[] generateThreePointsOrigo(int NUMPOINTS) {
+        double[] datapoints = new double[NUMPOINTS];
         for (int i = 0; i < 3; i++) {
             datapoints[i] = 0;
         }
         return datapoints;
     }
 
-    private double[] generateXUnitCircle() {
-        double[] xList = new double[10];
+    private double[] generateXUnitCircle(int NUMPOINTS) {
+        double[] xList = new double[NUMPOINTS];
         xList[0] = 1;
         xList[1] = 0;
         xList[2] = -1;
         return xList;
     }
 
-    private double[] generateYUnitCircle() {
-        double[] yList = new double[10];
+    private double[] generateYUnitCircle(int NUMPOINTS) {
+        double[] yList = new double[NUMPOINTS];
         yList[0] = 0;
         yList[1] = 1;
         yList[2] = 0;
         return yList;
     }
 
-    @Before
     public void setup() {
+
+        NUMPOINTS = 10;
         // A single line on x axis with evenly spaced datapoints
-        double[] xLinear = generateLinearValues(10);
-        double[] yLinear = new double[10];
+        xLinear = generateLinearValues(10);
+        yLinear = new double[10];
 
         // Three points at origo
-        double[] xOrigo = generateThreePointsOrigo();
-        double[] yOrigo = generateThreePointsOrigo();
+        xOrigo = generateThreePointsOrigo(NUMPOINTS);
+        yOrigo = generateThreePointsOrigo(NUMPOINTS);
 
         // Three points on unit circle
-        double[] xUnitCircle = generateXUnitCircle();
-        double[] yUnitCircle = generateYUnitCircle();
+        xUnitCircle = generateXUnitCircle(NUMPOINTS);
+        yUnitCircle = generateYUnitCircle(NUMPOINTS);
 
 
         radius1 = 1;
         radius2 = 2;
         radius10 = 10;
-
-        lic1 = new LIC1(xOrigo, yOrigo, radius1); // Test origo
-        lic2 = new LIC1(xUnitCircle, yUnitCircle, radius1); // Test unit circle
-        lic10 = new LIC1(xLinear, yLinear, radius1); // Test linear
-        licTester = new LIC1();
     }
 
     /**
@@ -78,9 +81,13 @@ class LIC1Test {
     @Test
     void testSinglePointInOrigo() {
         setup();
-        assertEquals(false, lic1.compute());
+        boolean result = LIC1.compute(xOrigo, yOrigo, radius1, 10);
+        assertEquals(false, result);
     }
 
+    /**
+     * Unit circle with a right angle triangle with points (0, 0), (1, 0), (0, 1).
+     */
     @Test
     void testRightAngledTriangleWithUnitCircle() {
         double[] xList = new double[10];
@@ -94,8 +101,8 @@ class LIC1Test {
         xList[2] = 0;
         yList[2] = 1;
 
-        LIC1 lic = new LIC1(xList, yList, 5);
-        assertEquals(false, lic.compute());
+        boolean result = LIC1.compute(xList, yList, radius1, NUMPOINTS);
+        assertEquals(false, result);
     }
 
     /**
@@ -104,52 +111,27 @@ class LIC1Test {
     @Test
     void testLinearDatapoints() {
         setup();
-        assertEquals(false, lic10.compute());
+        LIC1.compute(xLinear, yLinear, radius1, NUMPOINTS);
     }
 
+    /**
+     * Test with larger right angle triangle and unit circle.
+     */
     @Test
-    void testFindCircleCenter() {
+    void testValidInstance() {
         setup();
-        double x1 = 0, y1 = 2;
-        double x2 = 0, y2 = 0;
-        assertEquals(0, licTester.computeCenterX(x1, y1, x2, y2, 1));
-        assertEquals(1, licTester.computeCenterY(x1, y1, x2, y2, 1));
-    }
+        double[] xList = new double[10];
+        double[] yList = new double[10];
+        xList[0] = 0;
+        yList[0] = 0;
 
-    @Test
-    void testFindCircleCenterInOrigo() {
-        setup();
-        double x1 = 0, y1 = 2;
-        double x2 = 0, y2 = 0;
-        assertEquals(0, licTester.computeCenterX(x1, y1, x2, y2, 1));
-        assertEquals(1, licTester.computeCenterY(x1, y1, x2, y2, 1));
-    }
+        xList[1] = 10;
+        yList[1] = 0;
 
-    @Test
-    void testPointOnCircumference() {
-        setup();
-        double x1 = 1, y1 = 0;
-        double x2 = 0, y2 = 1;
-        double centerX = licTester.computeCenterX(x1, y1, x2, y2, 1);
-        double centerY = licTester.computeCenterY(x1, y1, x2, y2, 1);
-        assertEquals( -1, licTester.computePointOnCircumferenceX(x1, y1, centerX, centerY));
-        assertEquals( 0, Math.round(licTester.computePointOnCircumferenceY(x1, y1, centerX, centerY)));
-    }
+        xList[2] = 0;
+        yList[2] = 10;
 
-    @Test
-    void testCosine() {
-        LIC1 lic = new LIC1();
-
-        double x1 = 1, y1 = 1;
-        double x2 = 3, y2 = 1;
-        double x3 = 2, y3 = 2;
-
-
-        double angleP1 = lic.computeAngleWithCosineRule(x1, y1, x2, y2, x3, y3);
-        assertEquals(45, (int) Math.round(angleP1*180/Math.PI));
-        double angleP2 = lic.computeAngleWithCosineRule(x2, y2, x3, y3, x1, y1);
-        assertEquals(45, (int) Math.round(angleP2*180/Math.PI));
-        double angleP3 = lic.computeAngleWithCosineRule(x3, y3, x1, y1, x2, y2);
-        assertEquals(90, (int) Math.round(angleP3*180/Math.PI));
+        boolean result = LIC1.compute(xList, yList, radius1, NUMPOINTS);
+        assertEquals(true, result);
     }
 }
