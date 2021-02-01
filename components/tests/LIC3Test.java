@@ -13,6 +13,9 @@ public class LIC3Test {
 
     @Test
     void trueTest() {
-        assertTrue(true);
+        double[] xs = {0, 3, 5};
+        double[] ys = {1, 3, 1};
+        double AREA1 = 3;
+        assertTrue(LIC3.getCondition(xs, ys, AREA1));
     }
 }

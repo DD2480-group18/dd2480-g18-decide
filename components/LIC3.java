@@ -10,17 +10,27 @@ public class LIC3 {
     }
 
     public static boolean getCondition(double[] xs, double[] ys, double AREA1) {
+        double[] p1;
+        double[] p2;
+        double[] p3;
+        double[] v1;
+        double[] v2;
+        double v1Len;
+        double v2Len;
+        double angle;
+        double height;
+        double area;
         for (int i = 0; i < xs.length - 2; i++) {
-            double[] p1 = {xs[i], ys[i]};
-            double[] p2 = {xs[i+1], ys[i+1]};
-            double[] p3 = {xs[i+2], ys[i+2]};
-            double[] v1 = {p1[0]-p2[0], p1[1]-p2[1]};
-            double[] v2 = {p1[0]-p3[0], p1[1]-p3[1]};
-            double v1Len = vecLen(v1);
-            double v2Len = vecLen(v2);
-            double angle = Math.acos(dotProduct(v1, v2)/(v1Len*v2Len));
-            double height = Math.sin(angle)*v2Len;
-            double area = v1Len*height/2;
+            p1 = new double[] {xs[i], ys[i]};
+            p2 = new double[] {xs[i + 1], ys[i + 1]};
+            p3 = new double[] {xs[i + 2], ys[i + 2]};
+            v1 = new double[] {p1[0] - p2[0], p1[1] - p2[1]};
+            v2 = new double[] {p1[0] - p3[0], p1[1] - p3[1]};
+            v1Len = vecLen(v1);
+            v2Len = vecLen(v2);
+            angle = Math.acos(dotProduct(v1, v2)/(v1Len*v2Len));
+            height = Math.sin(angle)*v2Len;
+            area = v1Len*height/2;
             if (area > AREA1) {
                 condition = true;
                 break;
