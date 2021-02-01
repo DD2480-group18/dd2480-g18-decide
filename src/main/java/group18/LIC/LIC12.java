@@ -50,9 +50,9 @@ public class LIC12 {
             if (dist > LENGTH1 && dist < LENGTH2) return true;
             else if (dist > LENGTH1) condition1 = true;
             else if (dist < LENGTH2) condition2 = true;
-            System.out.println("condition1: " + condition1 + "\ncondition2: " + condition2 + "\n");
+            //System.out.println("condition1: " + condition1 + "\ncondition2: " + condition2 + "\n");
         }
-        System.out.println("\n");
+        //System.out.println("\n");
         return condition1 && condition2;
     }
 }
