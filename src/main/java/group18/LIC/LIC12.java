@@ -1,17 +1,6 @@
 package main.java.group18.LIC;
 
 public class LIC12 {
-    private static boolean condition1;
-    private static boolean condition2;
-
-    public static void setCondition1(boolean b) {
-        condition1 = b;
-    }
-
-    public static void setCondition2(boolean b) {
-        condition2 = b;
-    }
-
     /**
      * Help function to calculate distance between two points
      *
@@ -43,6 +32,8 @@ public class LIC12 {
         double[] pt_1;
         double[] pt_2;
         double dist;
+        boolean condition1 = false;
+        boolean condition2 = false;
         for (int i = 0; i < NUM_POINTS - K_PTS; i++) {
             pt_1 = new double[] {xs[i], ys[i]};
             pt_2 = new double[] {xs[i+K_PTS], ys[i+K_PTS]};
@@ -50,9 +41,7 @@ public class LIC12 {
             if (dist > LENGTH1 && dist < LENGTH2) return true;
             else if (dist > LENGTH1) condition1 = true;
             else if (dist < LENGTH2) condition2 = true;
-            //System.out.println("condition1: " + condition1 + "\ncondition2: " + condition2 + "\n");
         }
-        //System.out.println("\n");
         return condition1 && condition2;
     }
 }
