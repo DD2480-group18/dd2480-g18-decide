@@ -1,6 +1,6 @@
 package group18.LIC;
 
-class LIC13 {
+public class LIC13 {
 
     public static boolean compute(double[] xList, double[] yList, double radius1, double radius2, int A_PTS, int B_PTS, int numPoints) {
         boolean oneSetOutside = false, oneSetInside = false;
