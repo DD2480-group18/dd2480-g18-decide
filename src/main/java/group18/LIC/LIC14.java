@@ -21,7 +21,7 @@ public class LIC14 {
 	}
 
 	public static boolean getCondition(double[] xs, double[] ys, double AREA1, double AREA2, int e_pts, int f_pts, int numpoints) {
-		if ( e_pts < 1 || f_pts < 1 || e_pts + f_pts > numpoints -3 || AREA1 <= 0 || AREA2 <= 0 || numpoints < 5) return false;
+		if ( e_pts < 1 || f_pts < 1 || e_pts + f_pts > numpoints -3 || AREA1 < 0 || AREA2 < 0 || numpoints < 5) return false;
         boolean condition = false;
         boolean condArea1 = false;
         boolean condArea2 = false;
@@ -47,7 +47,6 @@ public class LIC14 {
 			angle = Math.acos(dotProduct(v1, v2)/(v1Len*v2Len));
 			height = Math.sin(angle)*v2Len;
             area = v1Len*height/2;
-            System.out.println("area: " + area);
 			if (area > AREA1) {
 				condArea1 = true;
             }
