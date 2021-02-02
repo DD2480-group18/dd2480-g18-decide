@@ -1,4 +1,4 @@
-package main.java.group18.LIC;
+package group18.LIC;
 
 public class LIC12 {
     /**
