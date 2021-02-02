@@ -1,6 +1,6 @@
 class LIC13 {
 
-    public static boolean compute(double[] xList, double[] yList, double radius1, int A_PTS, int B_PTS, int numPoints) {
+    public static boolean compute(double[] xList, double[] yList, double radius1, double radius2, int A_PTS, int B_PTS, int numPoints) {
         boolean oneSetOutside = false, oneSetInside = false;
         for (int i = 0; i < numPoints - (A_PTS + B_PTS + 2); i++) {
 
@@ -14,7 +14,8 @@ class LIC13 {
             }
             if (isOutside(threePoints, radius1)) {
                 oneSetOutside = true; // We found a set of points outside of circle with radius
-            } else {
+            }
+            if (!isOutside(threePoints, radius2)) {
                 oneSetInside = true;
             }
         }
