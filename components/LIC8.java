@@ -26,8 +26,8 @@ class LIC8 {
         double distanceBetweenP2P3 = Calculator.computeDistance(x2, y2, x3, y3);
         double distanceBetweenP1P3 = Calculator.computeDistance(x1, y1, x3, y3);
 
-        if (distanceBetweenP1P2 > 2*radius1 &&
-                distanceBetweenP2P3 > 2*radius1 &&
+        if (distanceBetweenP1P2 > 2*radius1 || 
+                distanceBetweenP2P3 > 2*radius1 ||
                 distanceBetweenP1P3 > 2*radius1) {
             return true;
         }
