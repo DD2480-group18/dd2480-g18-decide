@@ -26,3 +26,87 @@ Maven works with something called "lifecycle phases", which practically just wor
 
 # Credits 
 We would like to thank the teachers and TAs of the course DD2680 - Software Engineering Fundamentals for answering questions and clarifying any ambiguities regarding the assignment. 
+
+
+# List of Contributions
+
+## David Yu
+#### Features
+- [x] LIC1
+- [x] LIC3
+- [x] LIC8
+- [x] Wrote tests for each LIC
+#### Refactoring
+- [x] Extracted code into reusable class.
+- [x] Fixed bugs
+#### Documentation
+- [x] Added additional information to README
+#### Reviews
+- Peer review on a few PRs
+
+## Kalle
+#### Features
+- [x] FUV 2.3
+- [x] LIC2
+- [x] LIC5
+- [x] LIC7
+- [x] LIC9
+- [x] LIC11
+- [x] LIC14
+- [x] .gitignore
+#### Refactoring
+- [x] main connect everything (done with everyone)
+#### Reviews
+- Pull Request #57 (with Martin)
+- Pull Request #41
+
+## Lukas Gutenberg
+#### Features
+- [x] Junit setup for the project
+- [x] LIC 4
+- [x] LIC 10
+#### Refactoring
+- [x] LIC3
+- [x] several test files
+#### Reviews
+- [x] Most pull requests, ~15.
+
+## Martin
+#### Features
+- [x] TravisCI and Maven setup for project
+- [x] LIC6
+#### Refactoring
+- [x] LIC4 copy to main structure
+- [x] LIC9 copy to main structure, debug prints removed
+- [x] FUV copy to main structure, compilation errors fixed
+- [x] LIC12 debug prints removed
+- [x] ~~LIC3 refactor and copy to main structure~~ *(Duplicate work)*
+#### Documentation
+- [x] Instructions in README.md on how to use Maven/TravisCI
+- [x] TODO checklist as an overview of integration
+- [x] Set up basic format for and paste together this list of contributions
+#### Reviews
+- Pull Request #57 (with Kalle)
+- Pull Request #66
+#### Group coordinator
+- [x] Set up of discord with channels/links/etc.
+- [x] Tracking tasks and delegating towards end
+
+## Oscar
+#### Features
+- [x] LIC0
+- [x] LIC3
+- [x] LIC12
+- [x] PUM
+#### Refactoring
+- [x] LIC1 copy to main structure
+- [x] LIC8 copy to main structure, debug prints removed
+- [x] LIC7 copy to main structure,
+- [x] LIC13 copy to main structure, compilation errors fixed
+#### Reviews
+- [x] Pull Request #18
+- [x] Pull Request #19
+- [x] Pull Request #31 (reviewed and did some implementation)
+- [x] Pull Request #33
+#### Setup
+- [x] Set up Zoom-room
