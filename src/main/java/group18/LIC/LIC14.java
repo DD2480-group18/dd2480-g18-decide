@@ -1,3 +1,6 @@
+package group18.LIC;
+
+
 
 public class LIC14 {
     public static void main(String[] args) {
@@ -58,3 +61,4 @@ public class LIC14 {
 		return condition;
 	}
 }
+
