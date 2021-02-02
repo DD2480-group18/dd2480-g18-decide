@@ -3,16 +3,7 @@ package group18.LIC;
 import java.lang.Math;
 
 public class LIC6 {
-    public static void main(String[] args) {
-        int NUMPOINTS = 8;
-        double[] xCoordinates = {4,0,0,0,1,-3,0,1};
-        double[] yCoordinates = {2,0,0,0,1,-12,0,3};
-        // true
-        boolean licRes = LIC6.getLic6(xCoordinates,yCoordinates,NUMPOINTS,6,2);
-    }
-
-
-    public static boolean getLic6(double [] xPos, double[] yPos, int NUMPOINTS, int N_PTS, double DIST){
+    public static boolean getLic6(double [] xPos, double[] yPos, int NUMPOINTS, int N_PTS, double DIST) {
         double x1,x2,y1,y2;     // the two points forming a line, first and last of N_PTS
         double dx, dy;          // used to calculate the slope, k
         double k, m, a, b, c;   // variables to describe the line
@@ -21,7 +12,7 @@ public class LIC6 {
         boolean dxZero = false; // used to prevent division by zero when handling vertical lines
 
         // condition is only met when NUMPOINTS is at least 3
-        if(NUMPOINTS < 3){
+        if (NUMPOINTS < 3) {
             return false;
         }
         int offset = N_PTS-1; // we want the first and last of N_PTS, not N_PTS inbetween
@@ -39,7 +30,7 @@ public class LIC6 {
             // ax   +   by      + c = 0
             // regular case:
             // a = -k,  b = 1,  c = -m
-            if(dxZero){
+            if (dxZero) {
                 // a vertical line, its normal will
                 // be zero in y-direction and has no y-intercept (m=0=c)
                 // its x-component only needs to be non-zero so that it's
@@ -47,7 +38,7 @@ public class LIC6 {
                 a = 1;
                 b = 0;
                 c = 0;
-            }else { // regular case
+            } else { // regular case
                 k = dy / dx;
                 m = y1 - k * x1;
                 a = -k;

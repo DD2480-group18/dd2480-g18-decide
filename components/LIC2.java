@@ -13,7 +13,7 @@ public class LIC2 {
     }
 
     
-    public boolean getLic2(double [] xPos, double[] yPos, int numPoints,  double PI, double EPSILON){
+    public static boolean getLic2(double[] xPos, double[] yPos, int numPoints, double PI, double EPSILON){
         double x1,x2,y1,y2;
         double angle=-1;
         double lenX;

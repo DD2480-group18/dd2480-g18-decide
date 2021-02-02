@@ -1,8 +1,8 @@
 package group18.LIC;
 
 public class LIC4 {
-	public boolean lic4(int q_pts, int quads, double[] X, double[] Y){
-		for (int i = 0; i <= X.length-q_pts; ++i){
+	public static boolean lic4(int q_pts, int quads, double[] X, double[] Y, int numpoints){
+		for (int i = 0; i <= numpoints-q_pts; ++i){
 			boolean[] taken = {false, false, false, false};
 			for (int j = 0; j < q_pts; j++) {
 				if (X[i+j] >= 0){
