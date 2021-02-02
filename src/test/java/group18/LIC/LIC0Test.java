@@ -15,7 +15,7 @@ public class LIC0Test {
         double[] xs = {-1, 1};
         double[] ys = {-1, 1};
         double len = 3;
-        assertFalse(LIC0.getCondition(xs, ys, len));
+        assertFalse(LIC0.getCondition(xs, ys, len, 2));
     }
 
     /**
@@ -27,6 +27,6 @@ public class LIC0Test {
         double[] xs = {1, 3};
         double[] ys = {4, -2};
         double len = 4;
-        assertTrue(LIC0.getCondition(xs, ys, len));
+        assertTrue(LIC0.getCondition(xs, ys, len, 2));
     }
 }
