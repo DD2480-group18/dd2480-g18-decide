@@ -1,3 +1,4 @@
+package group18;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
@@ -51,7 +52,7 @@ public class FUVTest {
     }
 
     /**
-     * Test checks whether an error is thrown when dimensions of PUVi is incorrect
+     * Test checks whether an error is thrown when dimensions of PUVi is incorrect 
      */
     @Test
     void invalidInput() {
