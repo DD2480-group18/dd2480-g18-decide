@@ -27,7 +27,7 @@ public class LIC14Test {
 		double[] ys = {1, 0, 0, 3, 0, 0, 1};
         double AREA1 = 3;
         double AREA2 = 6;
-		assertTrue(LIC14.getCondition(xs, ys, AREA1, Area2, 2, 2, xs.length));
+		assertTrue(LIC14.getCondition(xs, ys, AREA1, AREA2, 2, 2, xs.length));
 	}
 
 	/**
