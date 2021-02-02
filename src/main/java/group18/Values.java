@@ -14,5 +14,10 @@ public class Values {
 	public BMATRIX PUM = new BMATRIX();
 	public VECTOR CMV = new VECTOR();
 	public VECTOR FUV = new VECTOR();
+	public VECTOR PUV = new VECTOR();
 	boolean LAUNCH;
+
+	public void testValues1() {
+		
+	}
 }
