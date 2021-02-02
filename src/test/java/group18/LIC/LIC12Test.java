@@ -20,8 +20,6 @@ public class LIC12Test {
         int NUM_POINTS = xs.length;
         int K_PTS = 1;
         assertTrue(LIC12.getCondition(xs, ys, NUM_POINTS, K_PTS, LENGTH1, LENGTH2));
-        LIC12.setCondition1(false);
-        LIC12.setCondition2(false);
     }
 
     /**
@@ -36,7 +34,5 @@ public class LIC12Test {
         int NUM_POINTS = xs.length;
         int K_PTS = 1;
         assertFalse(LIC12.getCondition(xs, ys, NUM_POINTS, K_PTS, LENGTH1, LENGTH2));
-        LIC12.setCondition1(false);
-        LIC12.setCondition2(false);
     }
 }

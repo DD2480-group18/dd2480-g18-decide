@@ -1,8 +1,6 @@
 package group18.LIC;
 
 public class LIC3 {
-    private static boolean condition = false;
-
     private static double dotProduct(double[] v1, double[] v2) {
         return v1[0]*v2[0] + v1[1]*v2[1];
     }
@@ -11,7 +9,9 @@ public class LIC3 {
         return Math.sqrt(Math.pow(v[0], 2) + Math.pow(v[1], 2));
     }
 
-    public static boolean getCondition(double[] xs, double[] ys, double AREA1) {
+    public static boolean getCondition(double[] xs, double[] ys, double AREA1, int numpoints) {
+        if (numpoints < 3 || AREA1 < 0) return false;
+        boolean condition = false;
         double[] p1;
         double[] p2;
         double[] p3;
@@ -22,7 +22,7 @@ public class LIC3 {
         double angle;
         double height;
         double area;
-        for (int i = 0; i < xs.length - 2; i++) {
+        for (int i = 0; i < numpoints - 2; i++) {
             p1 = new double[] {xs[i], ys[i]};
             p2 = new double[] {xs[i + 1], ys[i + 1]};
             p3 = new double[] {xs[i + 2], ys[i + 2]};
