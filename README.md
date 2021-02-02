@@ -25,7 +25,7 @@ Maven works with something called "lifecycle phases", which practically just wor
 `mvn clean compile test`
 
 # Credits 
-We would like to thank the teachers and TAs of the course DD2680 - Software Engineering Fundamentals for answering questions and clarifying any ambiguities regarding the assignment. 
+We would like to thank the teachers and TAs of the course DD2480 - Software Engineering Fundamentals for answering questions and clarifying any ambiguities regarding the assignment. 
 
 
 # List of Contributions
@@ -44,7 +44,7 @@ We would like to thank the teachers and TAs of the course DD2680 - Software Engi
 #### Reviews
 - Peer review on a few PRs
 
-## Kalle
+## Kalle Pettersson
 #### Features
 - [x] FUV 2.3
 - [x] LIC2
@@ -71,7 +71,7 @@ We would like to thank the teachers and TAs of the course DD2680 - Software Engi
 #### Reviews
 - [x] Most pull requests, ~15.
 
-## Martin
+## Martin Falke
 #### Features
 - [x] TravisCI and Maven setup for project
 - [x] LIC6
@@ -92,7 +92,7 @@ We would like to thank the teachers and TAs of the course DD2680 - Software Engi
 - [x] Set up of discord with channels/links/etc.
 - [x] Tracking tasks and delegating towards end
 
-## Oscar
+## Oscar Lindgren
 #### Features
 - [x] LIC0
 - [x] LIC3
