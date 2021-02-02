@@ -1,4 +1,8 @@
+# Launch Interceptor Program 
+Following project is a part of a hypothetical anti-ballistic missile system. Given a set of coordinates and parameters we have to decide whether or not to fire off an interceptor. Calculations are built from fifteen conditions and two matrix calculations with two vectors. If the all of the values in the final vector is true we make the decision to fire off an interceptor. 
 
+# Motivation 
+This project was created with the purpose of learning how to collaborate effectively when developing software. This includes issue tracking, task management, pull requests, code reviews and version control. 
 
 ## Setting up Maven
 The easiest way to compile, test, and run the code in `src/` is to use Maven. Before using it, it must be set up once per computer.
