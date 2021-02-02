@@ -1,7 +1,7 @@
-class LIC8 {
+class LIC13 {
 
-    public static boolean compute(double[] xList, double[] yList, double radius1, int A_PTS, int B_PTS, int numPoints) {
-
+    public static boolean compute(double[] xList, double[] yList, double radius1, double radius2, int A_PTS, int B_PTS, int numPoints) {
+        boolean oneSetOutside = false, oneSetInside = false;
         for (int i = 0; i < numPoints - (A_PTS + B_PTS + 2); i++) {
 
             double x1 = xList[i], y1 = yList[i];
@@ -9,11 +9,17 @@ class LIC8 {
             double x3 = xList[i + A_PTS + B_PTS + 2], y3 = yList[i + A_PTS + B_PTS + 2];
             double[] threePoints = new double[]{x1, y1, x2, y2, x3, y3};
 
+            if(oneSetInside && oneSetOutside) {
+                break; // We found one set for each condition
+            }
             if (isOutside(threePoints, radius1)) {
-                return true; // We found a set of points outside of circle with radius
+                oneSetOutside = true; // We found a set of points outside of circle with radius
+            }
+            if (!isOutside(threePoints, radius2)) {
+                oneSetInside = true;
             }
         }
-        return false;
+        return oneSetInside && oneSetOutside;
     }
 
     private static boolean isOutside(double[] points, double radius1) {
@@ -26,7 +32,7 @@ class LIC8 {
         double distanceBetweenP2P3 = Calculator.computeDistance(x2, y2, x3, y3);
         double distanceBetweenP1P3 = Calculator.computeDistance(x1, y1, x3, y3);
 
-        if (distanceBetweenP1P2 > 2*radius1 || 
+        if (distanceBetweenP1P2 > 2*radius1 ||
                 distanceBetweenP2P3 > 2*radius1 ||
                 distanceBetweenP1P3 > 2*radius1) {
             return true;

@@ -1,3 +1,5 @@
+package group18.LIC;
+
 class LIC8 {
 
     public static boolean compute(double[] xList, double[] yList, double radius1, int A_PTS, int B_PTS, int numPoints) {

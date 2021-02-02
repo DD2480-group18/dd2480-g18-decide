@@ -1,12 +1,14 @@
-class LIC8 {
+package group18.LIC;
 
-    public static boolean compute(double[] xList, double[] yList, double radius1, int A_PTS, int B_PTS, int numPoints) {
+class LIC1 {
 
-        for (int i = 0; i < numPoints - (A_PTS + B_PTS + 2); i++) {
+    public static boolean compute(double[] xList, double[] yList, double radius1, int numPoints) {
+
+        for (int i = 0; i < numPoints - 2; i++) {
 
             double x1 = xList[i], y1 = yList[i];
-            double x2 = xList[i + A_PTS + 1], y2 = yList[i + A_PTS + 1];
-            double x3 = xList[i + A_PTS + B_PTS + 2], y3 = yList[i + A_PTS + B_PTS + 2];
+            double x2 = xList[i + 1], y2 = yList[i + 1];
+            double x3 = xList[i + 2], y3 = yList[i + 2];
             double[] threePoints = new double[]{x1, y1, x2, y2, x3, y3};
 
             if (isOutside(threePoints, radius1)) {
@@ -26,7 +28,7 @@ class LIC8 {
         double distanceBetweenP2P3 = Calculator.computeDistance(x2, y2, x3, y3);
         double distanceBetweenP1P3 = Calculator.computeDistance(x1, y1, x3, y3);
 
-        if (distanceBetweenP1P2 > 2*radius1 || 
+        if (distanceBetweenP1P2 > 2*radius1 ||
                 distanceBetweenP2P3 > 2*radius1 ||
                 distanceBetweenP1P3 > 2*radius1) {
             return true;
