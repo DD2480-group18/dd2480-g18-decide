@@ -3,10 +3,10 @@ package group18;
 import group18.parameters.CONNECTORS;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PUMTest {
     @Test
@@ -23,13 +23,8 @@ public class PUMTest {
                 else if (rndIdx == 1) LCM[i][j] = CONNECTORS.ANDD;
                 else LCM[i][j] = CONNECTORS.ORR;
             }
-            System.out.println(Arrays.toString(LCM[i]));
         }
-        System.out.println(Arrays.toString(CMV));
         boolean[][] pum = group18.PUM.getPUM(CMV, LCM);
-        for (boolean[] row : pum) {
-            System.out.println(Arrays.toString(row));
-        }
         for (int i = 0; i < pum.length; i++) {
             for (int j = 0; j < pum[i].length; j++) {
                 if (i == j) continue;
