@@ -1,6 +1,5 @@
 package group18.LIC;
 
-import main.java.group18.LIC.LIC12;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

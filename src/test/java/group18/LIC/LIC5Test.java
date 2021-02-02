@@ -1,9 +1,9 @@
 package group18.LIC;
 
-import group18.LIC.LIC5;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LIC5Test {
     /**
@@ -14,8 +14,7 @@ public class LIC5Test {
     void trueTest() {
         double[] xs = {4,1,1};
         double[] ys = {2,1,3};
-        LIC5 lic5 = new LIC5();
-        assertTrue(lic5.getLic5(xs,ys,xs.length));
+        assertTrue(LIC5.getLic5(xs,ys,xs.length));
     }
 
     /**
@@ -26,7 +25,6 @@ public class LIC5Test {
     void falseTest() {
         double[] xs = {1,2,3};
         double[] ys = {2,1,3};
-        LIC5 lic5 = new LIC5();
-        assertFalse(lic5.getLic5(xs,ys,xs.length));
+        assertFalse(LIC5.getLic5(xs,ys,xs.length));
     }
 }
