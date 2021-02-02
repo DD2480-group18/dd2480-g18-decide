@@ -7,11 +7,11 @@ public class CMV {
 		boolean[] LICs = new boolean[15];
 
 		// All of the lic functions, one after another
-		LICs[0] = LIC0.getCondition(values.X.COORDINATE, values.Y.COORDINATE, values.PARAMETERS.DIST);
+		LICs[0] = LIC0.getCondition(values.X.COORDINATE, values.Y.COORDINATE, values.PARAMETERS.DIST, values.NUMPOINTS);
 		LICs[1] = LIC1.compute(values.X.COORDINATE, values.Y.COORDINATE, values.PARAMETERS.RADIUS1, values.NUMPOINTS);
 		LICs[2] = LIC2.getLic2(values.X.COORDINATE, values.Y.COORDINATE, values.NUMPOINTS, values.PI, values.PARAMETERS.EPSILON);
 		LICs[3] = LIC3.getCondition(values.X.COORDINATE, values.Y.COORDINATE, values.PARAMETERS.AREA1, values.NUMPOINTS);
-		LICs[4] = LIC4.lic4(values.PARAMETERS.Q_PTS, values.PARAMETERS.QUADS, values.X.COORDINATE, values.Y.COORDINATE);
+		LICs[4] = LIC4.lic4(values.PARAMETERS.Q_PTS, values.PARAMETERS.QUADS, values.X.COORDINATE, values.Y.COORDINATE, values.NUMPOINTS);
 		LICs[5] = LIC5.getLic5(values.X.COORDINATE, values.Y.COORDINATE, values.NUMPOINTS);
 		LICs[6] = LIC6.getLic6(values.X.COORDINATE, values.Y.COORDINATE, values.NUMPOINTS, values.PARAMETERS.N_PTS, values.PARAMETERS.DIST);
 		LICs[7] = LIC7.getCondition(values.X.COORDINATE, values.Y.COORDINATE, values.NUMPOINTS, values.PARAMETERS.DIST, values.PARAMETERS.K_PTS);
