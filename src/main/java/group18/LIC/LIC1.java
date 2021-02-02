@@ -1,6 +1,6 @@
 package group18.LIC;
 
-class LIC1 {
+public class LIC1 {
 
     public static boolean compute(double[] xList, double[] yList, double radius1, int numPoints) {
 
