@@ -24,7 +24,8 @@ class LIC1Test {
     double[] xUnitCircle;
     double[] yUnitCircle;
 
-    public double[] generateLinearValues(int NUMPOINTS) {
+    // Helper function 
+    private double[] generateLinearValues(int NUMPOINTS) {
         double[] datapoints = new double[NUMPOINTS];
         for (int i = 0; i < NUMPOINTS; i++) {
             datapoints[i] = i;
@@ -33,7 +34,7 @@ class LIC1Test {
     }
 
     // All three points are at the origo
-    public double[] generateThreePointsOrigo(int NUMPOINTS) {
+    private double[] generateThreePointsOrigo(int NUMPOINTS) {
         double[] datapoints = new double[NUMPOINTS];
         for (int i = 0; i < 3; i++) {
             datapoints[i] = 0;
@@ -41,6 +42,7 @@ class LIC1Test {
         return datapoints;
     }
 
+    // Helper function 
     private double[] generateXUnitCircle(int NUMPOINTS) {
         double[] xList = new double[NUMPOINTS];
         xList[0] = 1;
@@ -49,6 +51,7 @@ class LIC1Test {
         return xList;
     }
 
+    // Helper function 
     private double[] generateYUnitCircle(int NUMPOINTS) {
         double[] yList = new double[NUMPOINTS];
         yList[0] = 0;
@@ -57,6 +60,7 @@ class LIC1Test {
         return yList;
     }
 
+    // Set up the datapoints before running tests 
     public void setup() {
 
         NUMPOINTS = 10;
@@ -136,5 +140,17 @@ class LIC1Test {
 
         boolean result = LIC1.compute(xList, yList, radius1, NUMPOINTS);
         assertEquals(true, result);
+    }
+
+    /**
+     * This test regards checking for the condition where 
+     * 0 <= radius1 meaning that the radius of the circle should be 
+     * greater or equal to 0 and should return false otherwise. 
+     */
+    @Test
+    void testInvalidInput() {
+        setup();
+        double radius1 = -1; 
+        assertFalse(LIC1.compute(xList, yList, radius1, numPoints)); // This should return false 
     }
 }
