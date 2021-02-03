@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalculatorTest {
 
+    /**
+     * This tests the computation of euclidean distance between two points 
+     */
     @Test
     void computeDistance() {
         double x1 = -1, y1 = 0;
@@ -15,6 +18,9 @@ class CalculatorTest {
         assertEquals(2, result);
     }
 
+    /**
+     * This tests the computation of center x and y point. 
+     */
     @Test
     void computeCenter() {
         double x1 = -1, y1 = 0;
@@ -26,6 +32,9 @@ class CalculatorTest {
         assertEquals(0, center[1]);
     }
 
+    /**
+     * This tests the angle calculations for a given point. The last two parameters is x and y coordinates of the angle. 
+     */
     @Test
     void angleOn() {
         double x1 = 0, y1 = 0;
@@ -36,6 +45,9 @@ class CalculatorTest {
         assertEquals(45, result*180/Math.PI);
     }
 
+    /**
+     * This test the calculation of the angle on the circumference 
+     */
     @Test
     void angleOnCircumference() {
         double x1 = -1, y1 = 0;
@@ -47,10 +59,23 @@ class CalculatorTest {
         assertEquals(0, result);
     }
 
+    /**
+     * This test if the calculation of a point on the circumference is correct given the center and another point. 
+     */
     @Test
     void computePointOnCircumference() {
+        double expectedX = 1, expectedY = 0;
+        double x1 = -1, y1 = 0;
+        double centerX = 0, centerY = 0;
+
+        double[] actual = Calculator.computePointOnCircumference(x1, y1, centerX, centerY);
+        assertEquals(expectedX, actual[0]);
+        assertEquals(expectedY, actual[1]);
     }
 
+    /**
+     * This test the computation of cosine rule 
+     */
     @Test
     void cosineRule() {
         double ax = 0, ay = 0, bx = 1, by = 0, cx = 0, cy = 1;
@@ -59,6 +84,9 @@ class CalculatorTest {
         assertEquals(90, Math.round(result*180/Math.PI));
     }
 
+    /**
+     * This test is for testing the comparison function 
+     */
     @Test
     void angleComparator() {
         double anglePoint = 10;
