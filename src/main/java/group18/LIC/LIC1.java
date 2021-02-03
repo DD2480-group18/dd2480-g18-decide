@@ -3,7 +3,7 @@ package group18.LIC;
 public class LIC1 {
 
     public static boolean compute(double[] xList, double[] yList, double radius1, int numPoints) {
-
+        if(radius1 < 0) return false; // Condition 0 <= radius1
         for (int i = 0; i < numPoints - 2; i++) {
 
             double x1 = xList[i], y1 = yList[i];
