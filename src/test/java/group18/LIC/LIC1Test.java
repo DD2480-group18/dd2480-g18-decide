@@ -3,6 +3,7 @@ package group18.LIC;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class LIC1Test {
 
@@ -149,7 +150,9 @@ class LIC1Test {
      */
     @Test
     void testInvalidInput() {
-        setup();
+        int numPoints = 10;
+        double[] xList = new double[numPoints];
+        double[] yList = new double[numPoints];
         double radius1 = -1; 
         assertFalse(LIC1.compute(xList, yList, radius1, numPoints)); // This should return false 
     }
