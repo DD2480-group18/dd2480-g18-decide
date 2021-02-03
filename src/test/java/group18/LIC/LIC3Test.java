@@ -39,6 +39,9 @@ public class LIC3Test {
         assertTrue(LIC3.getCondition(xs, ys, AREA1, xs.length));
     }
 
+    /**
+     * Test with input that is invalid due to not enough datapoints, should return false
+     */
     @Test
     void invalidDataTest(){
         double[] xs = {0, 0};

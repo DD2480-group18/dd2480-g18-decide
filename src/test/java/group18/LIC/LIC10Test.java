@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LIC10Test {
 	/**
-	 * Test with input known to give a false result
+	 * Test with input known to give a false result, based on the test for LIC3
 	 */
 	@Test
 	void falseTest() {
@@ -18,7 +18,7 @@ public class LIC10Test {
 	}
 
 	/**
-	 * Test with input known to give a true result
+	 * Test with input known to give a true result, based on the test for LIC3
 	 */
 	@Test
 	void trueTest() {
@@ -29,7 +29,7 @@ public class LIC10Test {
 	}
 
 	/**
-	 * Test with input known to give a true result, but two points are the same (i.e. the distance between them is 0
+	 * Test with input known to give a true result, but two points are the same (i.e. the distance between them is 0, based on the test for LIC3
 	 */
 	@Test
 	void samePointTest() {
@@ -39,6 +39,9 @@ public class LIC10Test {
 		assertTrue(LIC10.getCondition(xs, ys, AREA1, 1, 1, xs.length));
 	}
 
+	/**
+	 * Test with data that is incorrect, numpoints is 4 but should be 5
+	 */
 	@Test
 	void invalidDataTest(){
 		double[] xs = {0, 0, 0, 0};
