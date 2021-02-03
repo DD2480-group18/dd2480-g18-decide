@@ -37,7 +37,7 @@ class LIC8Test {
         // 0 3 6
         A_PTS = 2;
         B_PTS = 3;
-        radie = 1;
+        radie = 0;
         NUMPOINTS = 10;
         xTrue = new double[NUMPOINTS];
         yTrue = new double[NUMPOINTS];
@@ -63,7 +63,7 @@ class LIC8Test {
         NUMPOINTS = 10;
         A_PTS = 2;
         B_PTS = 2;
-        radie = 1;
+        radie = 3;
         xOrigo = new double[NUMPOINTS];
         yOrigo = new double[NUMPOINTS];
         
@@ -95,5 +95,63 @@ class LIC8Test {
         boolean result = LIC8.compute(xFalse, yFalse, radie, A_PTS, B_PTS, NUMPOINTS);
 
         assertFalse(result);
+    }
+
+    /**
+     * This test is about the condition where the radius is invalid. 
+     */
+    @Test
+    void testInvalidRadius() {
+        double[] xList = new double[NUMPOINTS];
+        double[] yList = new double[NUMPOINTS];
+        double radius1 = -1; // Invalid 
+        int A_PTS = 1;
+        int B_PTS = 1;
+
+        assertFalse(LIC8.compute(xList, yList, radius1, A_PTS, B_PTS, NUMPOINTS));
+    }
+
+    /**
+     * This test is about the condition where the number of A_PTS is less than 1. 
+     */
+    @Test 
+    void testInvalidA_PTS() {
+        double[] xList = new double[NUMPOINTS];
+        double[] yList = new double[NUMPOINTS];
+        double radius1 = 1; 
+        int A_PTS = 0; // Invalid
+        int B_PTS = 1;
+
+        assertFalse(LIC8.compute(xList, yList, radius1, A_PTS, B_PTS, NUMPOINTS));
+    }
+
+
+    /**
+     * This test is about the condition where number of B_PTS is less than 1. 
+     */
+    @Test 
+    void testInvalidB_PTS() {
+        double[] xList = new double[NUMPOINTS];
+        double[] yList = new double[NUMPOINTS];
+        double radius1 = 1; 
+        int A_PTS = 1; 
+        int B_PTS = 0; // Invalid
+
+        assertFalse(LIC8.compute(xList, yList, radius1, A_PTS, B_PTS, NUMPOINTS));
+    }
+
+    /**
+     * This test is about the condition where number of points is less than 5. 
+     */
+    @Test 
+    void testInvalidNumPoints() {
+        int numPoints = 1; 
+        double[] xList = new double[numPoints];
+        double[] yList = new double[numPoints];
+        double radius1 = 1; 
+        int A_PTS = 1; 
+        int B_PTS = 0; 
+
+        assertFalse(LIC8.compute(xList, yList, radius1, A_PTS, B_PTS, numPoints));
     }
 }
