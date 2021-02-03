@@ -4,24 +4,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class LIC4Test {
+	/**
+	 * Test with input that should be true
+	 */
 	@Test
 	void passTest() {
-		// Test with input that should be true
 		double[] X = {1,-1};
 		double[] Y = {1,-1};
 		assertEquals(true, LIC4.lic4(2, 1, X, Y, 2));
 	}
 
+	/**
+	 * Test with input that should be false
+	 */
 	@Test
 	void failTest() {
-		// Test with input that should be false
 		double[] X = {1,1};
 		double[] Y = {1,1};
 		assertEquals(false, LIC4.lic4(2, 1, X, Y, 2));
 	}
 
+	/**
+	 * Testing the quadrant priorities, points along the axis should prioritise the lower numbered one
+	 */
 	@Test
 	void edgeCases() {
 		// Testing the quadrant priorities
