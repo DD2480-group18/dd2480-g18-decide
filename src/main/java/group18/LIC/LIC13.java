@@ -3,6 +3,9 @@ package group18.LIC;
 public class LIC13 {
 
     public static boolean compute(double[] xList, double[] yList, double radius1, double radius2, int A_PTS, int B_PTS, int numPoints) {
+        if (numPoints < 5 || 1 > A_PTS || 1 > B_PTS || (A_PTS + B_PTS) > (numPoints -3) || 0 > radius1 || 0 > radius2) { 
+            return false; 
+        }
         boolean oneSetOutside = false, oneSetInside = false;
         for (int i = 0; i < numPoints - (A_PTS + B_PTS + 2); i++) {
 
