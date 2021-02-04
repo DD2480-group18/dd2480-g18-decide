@@ -7,6 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import group18.parameters.*;
 
 public class parametersTest {
+
+	/**
+	 * Tests that the enum has the right constants.
+	 */
 	@Test
 	void testCONNECTORS(){
 		// 3 different values with defined names
@@ -20,6 +24,10 @@ public class parametersTest {
 		assertNotEquals(CONNECTORS.NOTUSED, con);
 	}
 
+	/**
+	 * Tests that the COORDINATE class initializes an array
+	 * of length 100 and that each element is initialized to 0.
+	 */
 	@Test
 	void testCOORDINATE(){
 		// 100 length array
@@ -30,6 +38,10 @@ public class parametersTest {
 		}
 	}
 
+	/**
+	 * Tests that the CMATRIX class initializes 15 rows
+	 * of CONNECTOR arrays each having length 15.
+	 */
 	@Test
 	void testCMATRIX(){
 		// 15x15 matrix
@@ -40,6 +52,10 @@ public class parametersTest {
 		}
 	}
 
+	/**
+	 * Tests that the BMATRIX class initializes 15 rows
+	 * of boolean arrays each having length 15.
+	 */
 	@Test
 	void testBMATRIX(){
 		// 15x15 matrix
@@ -50,13 +66,19 @@ public class parametersTest {
 		}
 	}
 
+	/**
+	 * Tests that the VECTOR class initializes its
+	 * instance variable to a boolean array of length 15
+	 */
 	@Test
 	void testVECTOR(){
-		// check if vector created and right length
 		VECTOR vector = new VECTOR();
 		assertEquals(vector.VECTOR.length, 15);
 	}
 
+	/**
+	 * Tests the COMPTYPE class.
+	 */
 	@Test
 	void testCOMPTYPE(){
 		// 3 different values with defined names
@@ -70,9 +92,12 @@ public class parametersTest {
 		assertNotEquals(COMPTYPE.GT, comptype);
 	}
 
+	/**
+	 * Tests that all the values of the PARAMETERS_T class
+	 * exist and are initialized as expected.
+	 */
 	@Test
 	void testPARAMETER_T(){
-		// check if all variables present
 		PARAMETERS_T parameters_t = new PARAMETERS_T();
 		assertEquals(parameters_t.LENGTH1,0);
 		assertEquals(parameters_t.LENGTH2, 0);
@@ -95,17 +120,22 @@ public class parametersTest {
 		assertEquals(parameters_t.G_PTS, 0);
 	}
 
+	/**
+	 * Test that makes sure the DOUBLECOMPARE compares
+	 * doubles as expected.
+	 */
 	@Test
 	void testDOUBLECOMPARE(){
-		// test comparison is done correctly
 		assertEquals(DOUBLECOMPARE.doubleCompare(1,2), COMPTYPE.LT);
 		assertEquals(DOUBLECOMPARE.doubleCompare(2,1), COMPTYPE.GT);
 		assertEquals(DOUBLECOMPARE.doubleCompare(1.0, 1.0000001), COMPTYPE.EQ);
 	}
 
+	/**
+	 * Test that checks to see if all values exists and are initialised
+	 */
 	@Test
 	void testValues(){
-		// check to see if all values exists and are initialised
 		Values values = new Values();
 		assertEquals(values.PI, 3.1415926535);
 		assertNotEquals(values.PARAMETERS, null);

@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import group18.parameters.CONNECTORS;
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
-public class MainTest 
+public class MainTest
 {
     /**
-     * Rigorous Test :-)
+     * Test example largely inspired from assignment .pdf where
+     * only the first four LICs are used and need to return true.
+     * End result should be true (and print "YES") as all four
+     * of the LICs should return true given the data.
      */
     @Test
     public void shouldAnswerWithTrue()
@@ -46,6 +46,12 @@ public class MainTest
         assertTrue(vals.LAUNCH);
     }
 
+    /**
+     * Test example largely inspired from assignment .pdf where
+     * only the first four LICs are used and need to return true.
+     * End result should be true (and print "NO") as LIC0 will
+     * return false with the given value for LENGTH1.
+     */
     @Test
     public void shouldAnswerWithFalse()
     {
@@ -77,6 +83,13 @@ public class MainTest
     }
 
 
+    /**
+     * Test case where every single LIC is required to be true
+     * for the end result to be a "YES" for the launch. The
+     * input data and parameters were hand-picked in a way so
+     * that every LIC will return true. Thus, the end result
+     * should be true (and print "YES").
+     */
     @Test
     public void oneTestToRuleThemAll(){
         Values vals = new Values();

@@ -18,6 +18,9 @@ public class FUVTest {
      * FUV[3] should be 0 since PUV[3] = 1 and PUM[3][1] = 0
      * INCORRECT FUV = [1,1,1,1]
      * SUPPOSED TO BE FUV = [0,1,1,0]
+     *
+     *  Tests whether the method getFUV(2) of the FUV class returns
+     *  a boolean array that does not contain incorrect *true* elements.
      */
     @Test
     void falseTest() {
@@ -40,6 +43,8 @@ public class FUVTest {
      * FUV[2] should be 1 since PUV[2] = 0 and PUM[2][i] = 1 for all i in range
      * FUV[3] should be 0 since PUV[3] = 1 and PUM[3][1] = 0
      * FUV = [1,1,1,0]
+     *  Tests whether the method getFUV(2) of the FUV class returns
+     *  a boolean array that is correct given the above PUV and PUM.
      */
     @Test
     void trueTest() {
