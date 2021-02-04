@@ -11,6 +11,7 @@ public class LIC0 {
      */
 
     public static boolean getCondition(double[] xs, double[] ys, double distance, int numpoints) {
+        if (distance < 0 || numpoints < 2) return false;
         boolean condition = false;
         for (int i = 0; i < numpoints-1; i ++) {
             double d = Math.sqrt(Math.pow(xs[i] - xs[i + 1], 2) + Math.pow(ys[i] - ys[i + 1], 2));

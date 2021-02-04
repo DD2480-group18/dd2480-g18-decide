@@ -5,6 +5,7 @@ package group18.LIC;
  */
 public class LIC2 {
     public static boolean getLic2(double [] xPos, double[] yPos, int numPoints,  double PI, double EPSILON){
+        if (numPoints < 3 || Double.compare(EPSILON, PI) > 0) return false;
         double x1,x2,y1,y2;
         double angle=-1;
         double lenX;

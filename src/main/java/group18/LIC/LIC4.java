@@ -2,6 +2,7 @@ package group18.LIC;
 
 public class LIC4 {
 	public static boolean lic4(int q_pts, int quads, double[] X, double[] Y, int numpoints){
+		if (q_pts > numpoints || q_pts < 2 || quads < 1 || quads > 3) return false;
 		for (int i = 0; i <= numpoints-q_pts; ++i){
 			boolean[] taken = {false, false, false, false};
 			for (int j = 0; j < q_pts; j++) {

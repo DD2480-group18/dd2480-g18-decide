@@ -12,7 +12,7 @@ public class LIC6 {
         boolean dxZero = false; // used to prevent division by zero when handling vertical lines
 
         // condition is only met when NUMPOINTS is at least 3
-        if (NUMPOINTS < 3) {
+        if (NUMPOINTS < 3 || N_PTS < 3 || N_PTS > NUMPOINTS || DIST < 0) {
             return false;
         }
         int offset = N_PTS-1; // we want the first and last of N_PTS, not N_PTS inbetween
