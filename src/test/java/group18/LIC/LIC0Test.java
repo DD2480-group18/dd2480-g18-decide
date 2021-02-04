@@ -29,4 +29,15 @@ public class LIC0Test {
         double len = 4;
         assertTrue(LIC0.getCondition(xs, ys, len, 2));
     }
+
+    /**
+     * Test with invalid data where the value of numpoints is less than 2
+     */
+    @Test
+    void invalidTest(){
+        double[] xs = {-1};
+        double[] ys = {-1};
+        double len = 3;
+        assertFalse(LIC0.getCondition(xs, ys, len, 1));
+    }
 }

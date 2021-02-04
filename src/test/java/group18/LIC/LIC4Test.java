@@ -48,4 +48,14 @@ public class LIC4Test {
 		assertEquals(false, LIC4.lic4(2, 1, X3, Y3, 2));
 
 	}
+
+	/**
+	 * Test with invalid input
+	 */
+	@Test
+	void invalidTest(){
+		double[] X = {1,-1};
+		double[] Y = {1,-1};
+		assertFalse(LIC4.lic4(3, 1, X, Y, 2));
+	}
 }
