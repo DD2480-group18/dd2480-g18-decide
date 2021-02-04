@@ -8,6 +8,13 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * This test randomly initializes a boolean array as a CMV
+ * and a CONNECTORS 2D-array/matrix as a LCM. It then checks
+ * that the method getPUM(2) of the PUM class returns a boolean
+ * 2D-array whose values correspond to what the combinations of
+ * the CMV and LCM should produce.
+ */
 public class PUMTest {
     @Test
     void testPUM1() {

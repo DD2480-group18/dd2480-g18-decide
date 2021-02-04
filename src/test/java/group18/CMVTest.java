@@ -4,6 +4,13 @@ import group18.LIC.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class CMVTest {
+
+	/**
+	 * This test stores the result of all individual LICs
+	 * given a naively initialized Values object in a boolean array
+	 * and then makes sure that the method calculate(1) of the CMV
+	 * class returns a boolean array with the same values.
+	 */
 	@Test
 	void testReturn(){
 		// this tests checks if CMV output is the same as all of the LIC output

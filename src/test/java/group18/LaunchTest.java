@@ -8,6 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LaunchTest {
 
+    /**
+     * Tests that the Launch class returns
+     * true when all FUV elements are true.
+     */
     @Test
     void testLaunch1() {
         boolean[] FUV = new boolean[15];
@@ -15,6 +19,11 @@ class LaunchTest {
 
         assertTrue(Launch.launch(FUV));
     }
+
+    /**
+     * Tests that the Launch class returns
+     * true when all FUV elements are false.
+     */
     @Test
     void testLaunch2() {
         boolean[] FUV = new boolean[15];

@@ -6,6 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import group18.*;
 
 public class ExampleTest {
+	/**
+	 * Example test that was used to get started
+	 * with testing through Maven.
+	 */
 	@Test
 	public void addition() {
 		Example example = new Example();
