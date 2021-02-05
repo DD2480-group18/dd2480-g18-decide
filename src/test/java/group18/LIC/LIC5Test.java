@@ -27,4 +27,14 @@ public class LIC5Test {
         double[] ys = {2,1,3};
         assertFalse(LIC5.getLic5(xs,ys,xs.length));
     }
+
+    /**
+     * Test that checks invalid data numpoints < 2
+     */
+    @Test
+    void invalidTest(){
+        double[] xs = {1};
+        double[] ys = {2};
+        assertFalse(LIC5.getLic5(xs,ys,xs.length));
+    }
 }
