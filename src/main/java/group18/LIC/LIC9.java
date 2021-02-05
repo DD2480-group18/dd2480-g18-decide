@@ -9,7 +9,7 @@ public class LIC9 {
         double angle=-1;
         double lenX;
         double leny;
-        if(numPoints < 5){
+        if(numPoints < 5 || 1 > C_PTS || 1 > D_PTS || (C_PTS + D_PTS) > numPoints -3){
             return false;
         }
         for (int i = 0; i < numPoints-2-C_PTS-D_PTS; i++) {
