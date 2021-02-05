@@ -113,7 +113,7 @@ public class MainTest
                 {ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD, ANDD }};
         boolean[] puv = {true, true, true, true, true, true, true, true, true, true, true, true, true, true, true};
         vals.init(x,y,numPoints, lcm, puv);
-        vals.PARAMETERS.init(0, 100000, 0, 100000, 1, 100000,0,0,2,
+        vals.PARAMETERS.init(0, 100000, 0, 100000, 1, 100000,1,1,2,
                 1, 3,1,1,1,1,1,1,1,1);
         Main.DECIDE(vals);
         assertTrue(vals.LAUNCH);
