@@ -34,4 +34,18 @@ public class LIC12Test {
         int K_PTS = 1;
         assertFalse(LIC12.getCondition(xs, ys, NUM_POINTS, K_PTS, LENGTH1, LENGTH2));
     }
+
+    /**
+     * Invalid LENGTH2 variable
+     */
+    @Test
+    void LIC12invalidTest() {
+        double[] xs = {-4, -3, -1, -1, 1, 1, 3, 3, 6};
+        double[] ys = {-1, 1, -1, 3, 1, 4, -2, 2, 1};
+        double LENGTH1 = 5;
+        double LENGTH2 = -1;
+        int NUM_POINTS = xs.length;
+        int K_PTS = 1;
+        assertFalse(LIC12.getCondition(xs, ys, NUM_POINTS, K_PTS, LENGTH1, LENGTH2));
+    }
 }

@@ -28,4 +28,14 @@ public class LIC11Test {
         double[] ys = {2,0,0,1,3};
         assertFalse(LIC11.getLic11(xs,ys,xs.length,2));
     }
+
+    /**
+     * Invalid G_point
+     */
+    @Test
+    void invalidData() {
+        double[] xs = {1,2,3,4,5};
+        double[] ys = {2,0,0,1,3};
+        assertFalse(LIC11.getLic11(xs,ys,xs.length,7));
+    }
 }
